@@ -2,7 +2,8 @@
 
 Digitales Auswertungstool für Neglect-Durchstreichaufgaben (Cancellation Tasks). Entwickelt für den klinischen Einsatz in der Neuropsychologie.
 
-Die App läuft als einzelne HTML-Datei direkt im Browser – keine Installation, kein Server, keine Internetverbindung nötig.
+Die App läuft als einzelne HTML-Datei direkt im Browser. Eigene JPEG können von Tests hochgeladen werden und mit targets (und Distraktoren) markiert werden - Danach geschieht die Berechnung automatisch. 
+Tipp: Kennwerte des jeweiligen Testblattes/Tests in der Normierung nachsehen. 
 
 ---
 
