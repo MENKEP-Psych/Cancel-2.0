@@ -1,44 +1,49 @@
-# Cancel 2.0 – Neuropsychologische Diagnostik
+# Cancel 2.0
 
-Webbasiertes Auswertungstool für Neglect-Durchstreichaufgaben (Cancellation Tasks) in der klinischen Neuropsychologie. Läuft vollständig im Browser, ohne Installation, ohne Server, ohne Internetverbindung.
+Digitales Auswertungstool für Neglect-Durchstreichaufgaben (Cancellation Tasks). Entwickelt für den klinischen Einsatz in der Neuropsychologie.
 
-## Funktionen
+Die App läuft als einzelne HTML-Datei direkt im Browser – keine Installation, kein Server, keine Internetverbindung nötig.
 
-- **Testdurchführung** — Digitale Durchführung von Cancellation Tasks mit beliebigem Testbild
-- **Live-Auswertung** — Echtzeit-Berechnung aller relevanten Kennwerte während der Testdurchführung
-- **Test-Editor** — Vollständiger Setup-Modus zum Erstellen und Bearbeiten von Testdateien inkl. Paint-Modus für Target-Zuweisung
-- **PDF-Export** — Automatischer Export mit Testergebnis, Scan-Overlay und Ergebnistabelle
-- **Portable** — Läuft als einzelne HTML-Datei in jedem modernen Browser
+---
 
-## Berechnete Kennwerte
+## Kennwerte
 
-| Kennwert | Beschreibung |
-|---|---|
-| **CoC (horizontal)** | Coefficient of Concentration – räumliche Tendenz links/rechts |
-| **CoC (vertikal)** | Räumliche Tendenz oben/unten |
-| **Auslassungen L/R** | Verpasste Targets je Bildhälfte |
-| **Chi² p-Wert** | Statistischer Test auf hemisphärische Asymmetrie |
-| **a-Index** | Allocentrischer Index (objektbezogene Vernachlässigung) |
-| **Distraktoren** | Falsch-positive Markierungen |
-| **Perseverationen** | Mehrfachmarkierungen |
+**CoC – Coefficient of Concentration (horizontal)**
+Misst, ob ein Patient systematisch eine Seite des Blattes bevorzugt. Ein Wert nahe 0 bedeutet gleichmäßige Verteilung, negative Werte zeigen eine Tendenz nach links, positive nach rechts. Auffällig außerhalb des konfigurierten Normbereichs.
+
+**CoC – Coefficient of Concentration (vertikal)**
+Dasselbe Prinzip wie der horizontale CoC, aber für die vertikale Achse (oben/unten).
+
+**Auslassungen links / rechts**
+Anzahl der Targets, die der Patient in der linken bzw. rechten Bildhälfte nicht angekreuzt hat. Die Grenze zwischen beiden Hälften liegt beim geometrischen Mittelpunkt aller Targets. Hohe Auslassungen auf einer Seite sind ein klassisches Neglect-Zeichen.
+
+**Chi² p-Wert**
+Statistischer Test (Yates-korrigierter Chi-Quadrat-Test), der prüft, ob die Verteilung der Treffer zwischen linker und rechter Seite zufällig ist oder eine signifikante Asymmetrie vorliegt. p < 0,05 gilt als statistisch signifikant.
+
+**a-Index – Allocentrischer Index**
+Misst objektbezogene (allocentrische) Vernachlässigung anhand von Items mit einseitigen Defektmerkmalen. Unabhängig davon, wo das Item auf dem Blatt liegt – es geht darum, ob der Patient die defekte Seite des Objekts selbst übersieht. Positive Werte deuten auf links-allocentrische, negative auf rechts-allocentrische Vernachlässigung hin.
+
+**Distraktoren**
+Items, die der Patient nicht ankreuzen soll. Jede Markierung eines Distraktors zählt als Fehler (falsch-positiv). Gibt Hinweise auf Impulsivität oder eingeschränkte Selektivität.
+
+**Perseverationen**
+Mehrfaches Ankreuzen desselben Items. Wird manuell erfasst und dokumentiert.
+
+---
 
 ## Target-Typen
 
-- **Normal** — Reguläre Targets, die angekreuzt werden sollen
-- **Defekt L / Defekt R** — Items mit einseitigen Merkmalsdefekten (für allocentrische Auswertung)
-- **Distraktor** — Items, die nicht angekreuzt werden sollen (Fehlererfassung)
+- **Normal** – Reguläre Targets, die angekreuzt werden sollen
+- **Defekt L / Defekt R** – Items mit einem einseitigen Defekt (links oder rechts), für die allocentrische Auswertung
+- **Distraktor** – Items, die nicht angekreuzt werden sollen
+
+---
 
 ## Verwendung
 
-### Als HTML-Datei (empfohlen für Klinik)
+### Klinik (HTML-Datei)
 
-Die fertige App steht als einzelne Datei zur Verfügung:
-
-```
-docs/index.html
-```
-
-Datei herunterladen und in einem beliebigen Browser öffnen. Keine Installation erforderlich.
+`docs/index.html` herunterladen und im Browser öffnen.
 
 ### Lokal entwickeln
 
@@ -47,22 +52,20 @@ npm install
 npm run dev
 ```
 
-### Build erstellen
+### Build
 
 ```bash
 npm run build
 ```
 
-Erzeugt `docs/index.html` — eine vollständig selbstenthaltene HTML-Datei.
+Erzeugt `docs/index.html` als einzelne, vollständige Datei.
+
+---
 
 ## Testdateien
 
-Tests werden als `.json`-Dateien gespeichert und können zwischen Geräten geteilt werden. Die Datei enthält Testbild, Target-Positionen, Typen und diagnostische Grenzwerte.
+Testdateien werden als `.json` gespeichert und enthalten Testbild, Target-Positionen, Typen und diagnostische Grenzwerte. Sie können zwischen Geräten geteilt und wiederverwendet werden.
 
-## Technologie
+---
 
-React · TypeScript · Tailwind CSS · jsPDF · Vite
-
-## Hinweis
-
-Dieses Tool dient der Unterstützung klinischer Diagnostik und ersetzt keine fachärztliche Beurteilung. Nur zur Verwendung durch geschultes Fachpersonal.
+*Nur zur Verwendung durch geschultes Fachpersonal. Kein Ersatz für fachärztliche Beurteilung.*
